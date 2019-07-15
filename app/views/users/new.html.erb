@@ -13,9 +13,17 @@
     <%= f.text_field :name %>
     <br />
 
+    <%= f.label "年齢" %><br />
+    <%= f.number_field :age %>
+    <br />
+
     <%= f.label "紹介文" %><br />
     <%= f.text_area :detail %>
     <br />
 
     <%= f.submit "登録" %>
+    <br />
 <% end %>
+
+<br />
+<a href="/">トップページに戻る</a><br />
