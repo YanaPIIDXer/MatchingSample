@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'top#index'
   
   get 'top' => 'top#index'
@@ -10,6 +11,8 @@ Rails.application.routes.draw do
   post 'login/check'
 
   get 'user_top' => 'user_top#index'
+
+  get 'logout' => 'logout#logout'
 
   get 'error' => 'error#index'
 end
