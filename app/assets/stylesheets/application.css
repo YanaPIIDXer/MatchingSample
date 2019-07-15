@@ -13,3 +13,48 @@
  *= require_tree .
  *= require_self
  */
+
+body
+{
+    background-color: #00FFFF;
+}
+
+.PageTitle
+{
+    font-size: 50px;
+    text-align: center;
+}
+
+.Flash
+{
+    padding: 0px;
+    opacity: 0;
+    height: 0px;
+    text-align: center;
+
+    transition-duration: 500ms;
+}
+
+.FlashButton:checked ~ .Flash
+{
+    padding: 30px;
+    height: 10px;
+    opacity: 1;
+}
+
+.FlashButton
+{   
+    display: none;
+}
+
+.Notice
+{
+    background-color: #0000FF;
+    color: #FFFFFF;
+}
+
+.Alert
+{
+    background-color: #FF0000;
+    color: #FFFFFF;
+}
