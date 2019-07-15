@@ -1,4 +1,8 @@
 <% if flash.any? %>
+    <!--
+        CSSを使ったアニメーションを実装する為の仕掛け。
+        見えないボタンのチェックを弄る事でアニメーションを再生する。
+     -->
     <input type="checkbox" class="FlashButton" id="FlashButton" name="FlashButton">
     <script type="text/javascript">
         window.onload = function()
