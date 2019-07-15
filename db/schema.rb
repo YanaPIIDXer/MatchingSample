@@ -14,8 +14,9 @@
 ActiveRecord::Schema.define(version: 20190715030007) do
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",       limit: 255
+    t.string   "user_id",    limit: 255
     t.string   "password",   limit: 255
+    t.string   "name",       limit: 255
     t.integer  "age",        limit: 4
     t.string   "detail",     limit: 255
     t.datetime "created_at",             null: false
