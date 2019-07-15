@@ -14,13 +14,39 @@
  *= require_self
  */
 
- body
- {
-     background-color: #00FFFF;
- }
+body
+{
+    background-color: #00FFFF;
+}
 
- .PageTitle
- {
-     font-size: 50px;
-     text-align: center;
- }
+.PageTitle
+{
+    font-size: 50px;
+    text-align: center;
+}
+
+.Flash
+{
+    padding: 0px;
+    opacity: 0;
+    text-align: center;
+
+    transition-duration: 500ms;
+}
+
+.FlashButton:checked ~ .Flash
+{
+    padding: 10px;
+    opacity: 1;
+}
+
+.FlashButton
+{   
+    display: none;
+}
+
+.Notice
+{
+    background-color: #0000FF;
+    color: #FFFFFF;
+}

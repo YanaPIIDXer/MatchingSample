@@ -1,3 +1,23 @@
+<% if flash[:notice] || flash[:alert] %>
+    <input type="checkbox" class="FlashButton" id="FlashButton" name="FlashButton">
+    <script type="text/javascript">
+        window.onload = function()
+        {
+            document.getElementById("FlashButton").checked = true;
+            setTimeout(function()
+            {
+                document.getElementById("FlashButton").checked = false;
+            }, 3000);
+        }
+    </script>
+<% end %>
+
+<% if flash[:notice] %>
+    <div class="Flash Notice">
+        <%= flash[:notice] %>
+    </div>
+<% end %>
+
 <div class="PageTitle">
     <%= pageTitle %>
 </div>

@@ -1,0 +1,5 @@
+<%= render partial: "application/pageheader", locals: {pageTitle: "ユーザ登録"} %>
+
+<%= form_for(@user) do |f| %>
+    <%= f.submit "登録" %>
+<% end %>

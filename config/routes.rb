@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  
   root 'top#index'
   
   get 'top' => 'top#index'
   
-  # 仮
-  get 'join' => 'top#index'
+  get 'join' => 'users#new'
+  resources :users, only: [:create]
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
