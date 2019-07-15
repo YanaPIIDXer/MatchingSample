@@ -1,4 +1,4 @@
-<% if flash[:notice] || flash[:alert] %>
+<% if flash.any? %>
     <input type="checkbox" class="FlashButton" id="FlashButton" name="FlashButton">
     <script type="text/javascript">
         window.onload = function()
