@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'join/index'
+
   root 'top#index'
   
   get 'top' => 'top#index'
