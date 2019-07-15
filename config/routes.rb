@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'join/index'
-
+  
   root 'top#index'
   
   get 'top' => 'top#index'
+  get 'join' => 'join#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
