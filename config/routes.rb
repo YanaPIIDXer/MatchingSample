@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+
   root 'top#index'
   
   get 'top' => 'top#index'
   
   get 'join' => 'users#new'
   resources :users, only: [:create]
+
+  get 'login' => 'login#index'
+  post 'login/check'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

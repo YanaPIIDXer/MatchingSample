@@ -1,0 +1,17 @@
+<%= render partial: "application/pageheader", locals: {pageTitle: "ログイン"} %>
+
+<%= form_for(:session, url: "login/check") do |f| %>
+    <%= f.label "ユーザＩＤ" %><br />
+    <%= f.text_field :user_id %>
+    <br />
+
+    <%= f.label "パスワード" %><br />
+    <%= f.password_field :password %>
+    <br />
+
+    <%= f.submit "ログイン" %>
+    <br />
+<% end %>
+
+<br />
+<a href="/top">トップページに戻る</a><br />
