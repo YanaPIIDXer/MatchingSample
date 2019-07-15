@@ -14,8 +14,6 @@ Rails.application.routes.draw do
 
   get 'error' => 'error#index'
 
-  get 'logout' => 'logout#index'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
