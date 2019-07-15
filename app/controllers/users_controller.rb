@@ -10,6 +10,6 @@ class UsersController < ApplicationController
       return
     end
 
-    redirect_to '/top', :notice => "登録しました。"
+    redirect_to '/', :notice => "登録しました。"
   end
 end

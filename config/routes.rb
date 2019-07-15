@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'logout/logout'
+
   root 'top#index'
   
   get 'top' => 'top#index'
@@ -9,7 +11,11 @@ Rails.application.routes.draw do
 
   get 'login' => 'login#index'
   post 'login/check'
-  
+
+  get 'user_top' => 'user_top#index'
+
+  get 'error' => 'error#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

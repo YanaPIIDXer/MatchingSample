@@ -22,6 +22,6 @@ class LoginController < ApplicationController
     end
 
     session[:user_id] = user_id
-    redirect_to '/top', :notice => "ログインしました。"
+    redirect_to '/user_top', :notice => "ログインしました。"
   end
 end
