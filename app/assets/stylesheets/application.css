@@ -29,6 +29,7 @@ body
 {
     padding: 0px;
     opacity: 0;
+    height: 0px;
     text-align: center;
 
     transition-duration: 500ms;
@@ -36,7 +37,8 @@ body
 
 .FlashButton:checked ~ .Flash
 {
-    padding: 10px;
+    padding: 30px;
+    height: 10px;
     opacity: 1;
 }
 
@@ -48,5 +50,11 @@ body
 .Notice
 {
     background-color: #0000FF;
+    color: #FFFFFF;
+}
+
+.Alert
+{
+    background-color: #FF0000;
     color: #FFFFFF;
 }

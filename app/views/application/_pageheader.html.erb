@@ -18,6 +18,12 @@
     </div>
 <% end %>
 
+<% if flash[:alert] %>
+    <div class="Flash Alert">
+        <%= flash[:alert] %>
+    </div>
+<% end %>
+
 <div class="PageTitle">
     <%= pageTitle %>
 </div>
