@@ -1,8 +1,15 @@
-class UserSearchController < ApplicationController
+class UserSearchController < AuthPageController
   def index
+    if checkAndRedirectToError()
+      return
+    end
   end
 
   def result
+    if checkAndRedirectToError()
+      return
+    end
+
     @name = params[:name]
     @detail = params[:detail]
     @ageMin = params[:age_min].to_i()
