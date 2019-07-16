@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190716051317) do
+ActiveRecord::Schema.define(version: 20190716060413) do
 
   create_table "contact_requests", force: :cascade do |t|
     t.string   "user_id",        limit: 255
@@ -20,11 +20,16 @@ ActiveRecord::Schema.define(version: 20190716051317) do
     t.datetime "updated_at",                 null: false
   end
 
-  create_table "contacts", force: :cascade do |t|
-    t.string   "user_id1",   limit: 255
-    t.string   "user_id2",   limit: 255
+  create_table "contact_users", force: :cascade do |t|
+    t.integer  "contact_id", limit: 4
+    t.string   "user_id",    limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
