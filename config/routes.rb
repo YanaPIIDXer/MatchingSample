@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'user_search_result' => 'user_search#result'
 
   get 'user_info' => 'user_info#index'
+  get 'contact_request' => 'user_info#contact_request'
 
   get 'logout' => 'logout#logout'
 

@@ -8,6 +8,10 @@
 <% else %>
     紹介文が設定されていません。<br />
 <% end %>
+<br />
+
+<%= link_to "コンタクト要求を送る", "/contact_request?user_id=#{@user.user_id}" %>
+<br />
 
 <br />
 <%= link_to "戻る", @prevPageURL %><br />
