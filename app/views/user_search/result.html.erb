@@ -8,4 +8,17 @@
 <% end %>
 <br />
 
+<%= @page %> / <%= @maxPage %><br />
+<% @maxPage.times do |i| %>
+    <% if (i + 1) != @page %>
+        <%= link_to "#{i + 1}", "/user_search_result?name=#{@name}&age_min=#{@ageMin}?&age_max=#{@ageMax}&detail=#{@detail}&page=#{i + 1}" %> 
+    <% else %>
+        <%= (i + 1) %> 
+    <% end %>
+    <% if i != (@maxPage - 1) %>
+        , 
+    <% end %>
+<% end %>
+<br /><br />
+
 <a href="/user_search">戻る</a><br />
