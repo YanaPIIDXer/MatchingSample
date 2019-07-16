@@ -2,10 +2,10 @@
 
 <% if !@users.empty? %>
     <% @users.each do |user| %>
-        <%= link_to user.name, "/contact?user_id=#{user.user_id}" %>
         <% if user.has_not_read %>
-            !!
+            <div class="NotRead">!!</div>
         <% end %>
+        <%= link_to user.name, "/contact?user_id=#{user.user_id}" %>
         <br />
     <% end %>
 <% else %>

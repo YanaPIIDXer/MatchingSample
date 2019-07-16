@@ -29,7 +29,7 @@ class ContactController < AuthPageController
       end
       @messages.push(data)
 
-      if !msg.is_read
+      if msg.user_id != me.user_id && !msg.is_read
         msg.is_read = true
         msg.save()
       end
