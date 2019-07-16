@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 
   get 'user_top' => 'user_top#index'
 
+  get 'user_search' => 'user_search#index'
+  get 'user_search_result' => 'user_search#result'
+
+
   get 'logout' => 'logout#logout'
 
   get 'error' => 'error#index'

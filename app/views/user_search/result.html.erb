@@ -1,0 +1,11 @@
+<%= render partial: "application/pageheader", locals: {pageTitle: "ユーザ検索結果"} %>
+
+検索結果：<%= @userCount %>人<br />
+<hr />
+
+<% @users.each do |user| %>
+    <%= user["name"] %>（<%= user["age"] %>）<br />
+<% end %>
+<br />
+
+<a href="/user_top">戻る</a><br />
