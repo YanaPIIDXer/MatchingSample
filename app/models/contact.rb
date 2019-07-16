@@ -22,4 +22,8 @@ class Contact < ActiveRecord::Base
         return nil
     end
 
+    def self.hasNotRead?(contact_id, user_id)
+        return ContactMessage.where("contact_id = ? and user_id = ? and is_read <> 0").exists?
+    end
+
 end
