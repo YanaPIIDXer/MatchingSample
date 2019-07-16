@@ -4,7 +4,7 @@
 <hr />
 
 <% @users.each do |user| %>
-    <%= user["name"] %>（<%= user["age"] %>）<br />
+    <%= link_to user["name"], "/user_info?user_id=#{user["user_id"]}" %><br />
 <% end %>
 <br />
 
