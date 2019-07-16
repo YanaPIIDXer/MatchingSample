@@ -1,5 +1,6 @@
 class UserSearchController < ApplicationController
   def index
+    session[:user_search_result] = nil
   end
 
   def query
@@ -17,6 +18,5 @@ class UserSearchController < ApplicationController
 
     @users = session[:user_search_result]
     @userCount = @users.length
-    session[:user_search_result] = nil
   end
 end
