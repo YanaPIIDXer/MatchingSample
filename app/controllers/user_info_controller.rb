@@ -12,11 +12,6 @@ class UserInfoController < AuthPageController
 
     @isSendContact = isSendContactRequest?(params[:user_id])
     @isContactUser = isContactUser?(params[:user_id])
-    if @isContectUser
-      logger.debug("IsContectUser")
-    else
-      logger.debug("Fuck.")
-    end
   end
 
   def contact_request
@@ -80,7 +75,11 @@ private
   end
 
   def isContactUser?(target_user_id)
-    return Contact.where("(user_id1 = ? and user_id2 = ?) or (user_id1 = ? and user_id2 = ?)", target_user_id, session[:user_id], session[:user_id], target_user_id).exists?
+    users = Contact.collectUsers(session[:user_id])
+    users.each do |user|
+      return true if user.user_id == target_user_id
+    end
+    return false    
   end
 
 end

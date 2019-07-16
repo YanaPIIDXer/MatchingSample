@@ -1,0 +1,26 @@
+<%= render partial: "application/pageheader", locals: {pageTitle: "コンタクト"} %>
+
+<% if !@messages.empty? %>
+    <% @messages.each do |message| %>
+        <% if message.isMe %>
+            <div class="Message MyMessage">
+        <% else %>
+            <div class="Message TargetMessage">
+        <% end %>
+        <%= "#{message.name} : #{message.message}" %>
+        </div>
+    <% end %>
+<% else %>
+    まだ発言はありません。<br />
+<% end %>
+
+<hr />
+<%= form_tag("/contact/send_message") do %>
+    <%= hidden_field_tag :user_id, params[:user_id] %>
+    <%= hidden_field_tag :contact_id, @contact_id %>
+    <%= text_field_tag :message %>
+    <%= submit_tag "発言" %>
+<% end %>
+
+<br />
+<a href="/contact_list">戻る</a><br />

@@ -26,7 +26,15 @@ class ContactRequestsController < AuthPageController
 
     Contact.transaction do
       ContactRequest.transaction do
-        Contact.create!(user_id1: session[:user_id], user_id2: params[:user_id])
+        contact = Contact.new()
+        contact.save!()
+
+        contactUser = ContactUser.new(contact_id: contact.id, user_id: session[:user_id])
+        contactUser.save!()
+
+        contactUser = ContactUser.new(contact_id: contact.id, user_id: params[:user_id])
+        contactUser.save!()
+        
         req = ContactRequest.find_by(user_id: params[:user_id], target_user_id: session[:user_id])
         req.destroy!()
       end
