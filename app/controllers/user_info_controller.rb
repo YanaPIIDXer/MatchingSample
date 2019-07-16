@@ -11,6 +11,12 @@ class UserInfoController < AuthPageController
     end
 
     @isSendContact = isSendContactRequest?(params[:user_id])
+    @isContactUser = isContactUser?(params[:user_id])
+    if @isContectUser
+      logger.debug("IsContectUser")
+    else
+      logger.debug("Fuck.")
+    end
   end
 
   def contact_request
@@ -25,6 +31,11 @@ class UserInfoController < AuthPageController
 
     if isSendContactRequest?(params[:user_id])
       redirect_to "/user_info?user_id=#{params[:user_id]}", :alert => "コンタクト要求送信済みです。"
+      return
+    end
+
+    if isContactUser?(params[:user_id])
+      redirect_to "/user_info?user_id=#{params[:user_id]}", :alert => "コンタクト済みのユーザです。"
       return
     end
 
@@ -66,6 +77,10 @@ private
 
   def isSendContactRequest?(target_user_id)
     return (ContactRequest.find_by(user_id: session[:user_id], target_user_id: target_user_id) != nil)
+  end
+
+  def isContactUser?(target_user_id)
+    return Contact.where("(user_id1 = ? and user_id2 = ?) or (user_id1 = ? and user_id2 = ?)", target_user_id, session[:user_id], session[:user_id], target_user_id).exists?
   end
 
 end

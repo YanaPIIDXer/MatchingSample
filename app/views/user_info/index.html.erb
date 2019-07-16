@@ -10,10 +10,14 @@
 <% end %>
 <br />
 
-<% if !@isSendContact %>
-    <%= link_to "コンタクト要求を送る", "/contact_request?user_id=#{@user.user_id}" %>
+<% if !@isContactUser %>
+    <% if !@isSendContact %>
+        <%= link_to "コンタクト要求を送る", "/contact_request?user_id=#{@user.user_id}" %>
+    <% else %>
+        <%= link_to "コンタクト要求を解除する", "/cancel_contact_request?user_id=#{@user.user_id}" %>
+    <% end %>
 <% else %>
-    <%= link_to "コンタクト要求を解除する", "/cancel_contact_request?user_id=#{@user.user_id}" %>
+    コンタクト済みのユーザです。
 <% end %>
 <br />
 
