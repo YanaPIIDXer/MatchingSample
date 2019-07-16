@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   get 'user_top' => 'user_top#index'
 
   get 'user_search' => 'user_search#index'
-  post 'user_search_query' => 'user_search#query'
   get 'user_search_result' => 'user_search#result'
 
 
