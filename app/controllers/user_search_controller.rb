@@ -38,7 +38,7 @@ class UserSearchController < AuthPageController
       @page = params[:page].to_i()
     end
 
-    @maxPage = @userCount / 20
+    @maxPage = (@userCount / 20) + 1
     @users = @users.limit(20).offset((@page - 1) * 20)
   end
 end
