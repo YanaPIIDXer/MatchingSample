@@ -1,0 +1,7 @@
+<%= render partial: "application/pageheader", locals: {pageTitle: "ユーザ検索"} %>
+
+<%= form_tag("/user_search_query") do %>
+    <%= submit_tag "検索" %><br />
+<% end %>
+<br />
+<a href="/user_top">戻る</a><br />
