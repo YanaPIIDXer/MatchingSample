@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   get 'contact_requests' => 'contact_requests#index'
   get 'create_contact' => 'contact_requests#create_contact'
+  
+  get 'contact_list' => 'contact_list#index'
 
   get 'logout' => 'logout#logout'
 
