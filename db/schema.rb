@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(version: 20190716051317) do
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string   "user_id",        limit: 255
-    t.string   "target_user_id", limit: 255
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "user_id1",   limit: 255
+    t.string   "user_id2",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|
