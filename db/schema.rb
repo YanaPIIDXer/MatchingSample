@@ -11,9 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190716042849) do
+ActiveRecord::Schema.define(version: 20190716051317) do
 
   create_table "contact_requests", force: :cascade do |t|
+    t.string   "user_id",        limit: 255
+    t.string   "target_user_id", limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
     t.string   "user_id",        limit: 255
     t.string   "target_user_id", limit: 255
     t.datetime "created_at",                 null: false
