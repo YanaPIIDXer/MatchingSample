@@ -4,7 +4,11 @@ class Contact < ActiveRecord::Base
         contactUsers = ContactUser.where("user_id = ?", user_id)
         users = []
         contactUsers.each do |contactUser|
-            users.push(ContactUser.where("contact_id = ? and user_id <> ?", contactUser.id, user_id).first)
+            contactUsers2 = ContactUser.where("contact_id = ? and user_id <> ?", contactUser.contact_id, user_id).first
+            if contactUsers2
+                user = User.find_by(user_id: contactUsers2.user_id)
+                users.push(user)
+            end
         end
         return users
     end

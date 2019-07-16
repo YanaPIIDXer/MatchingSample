@@ -1,4 +1,12 @@
 <%= render partial: "application/pageheader", locals: {pageTitle: "コンタクト一覧"} %>
 
+<% if !@contactUsers.empty? %>
+    <% @contactUsers.each do |user| %>
+        <%= user["name"] %><br />
+    <% end %>
+<% else %>
+    コンタクトはありません。
+<% end %>
+
 <br />
 <a href = "/user_top">戻る</a><br />
