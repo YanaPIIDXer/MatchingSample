@@ -11,6 +11,8 @@ class UserInfoController < AuthPageController
     end
 
     @prevPageURL = request.referer
+
+    @isSendContact = isSendContactRequest?(params[:user_id])
   end
 
   def contact_request
@@ -23,7 +25,7 @@ class UserInfoController < AuthPageController
       return
     end
 
-    if ContactRequest.find_by(user_id: session[:user_id], target_user_id: params[:user_id])
+    if isSendContactRequest?(params[:user_id])
       redirect_to "/user_info?user_id=#{params[:user_id]}", :alert => "コンタクト要求送信済みです。"
       return
     end
@@ -35,6 +37,37 @@ class UserInfoController < AuthPageController
     end
 
     redirect_to "/user_info?user_id=#{params[:user_id]}", :notice => "コンタクト要求を送信しました。"
+  end
+
+  def cancel_contact_request
+    if checkAndRedirectToError()
+      return
+    end
+
+    if !params[:user_id] || params[:user_id] == ""
+      redirect_to '/error', :alert => "不正なリクエストです。"
+      return
+    end
+
+    req = ContactRequest.find_by(user_id: session[:user_id], target_user_id: params[:user_id])
+
+    if !req
+      redirect_to "/user_info?user_id=#{params[:user_id]}", :alert => "コンタクト要求をしていません。"
+      return
+    end
+
+    if !req.destroy()
+      redirect_to "/user_info?user_id=#{params[:user_id]}", :alert => "コンタクト要求の解除に失敗しました。"
+      return
+    end
+
+    redirect_to "/user_info?user_id=#{params[:user_id]}", :notice => "コンタクト要求を解除しました。"
+  end
+
+private
+
+  def isSendContactRequest?(target_user_id)
+    return (ContactRequest.find_by(user_id: session[:user_id], target_user_id: target_user_id) != nil)
   end
 
 end
