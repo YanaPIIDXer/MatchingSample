@@ -2,7 +2,7 @@
 
 <% if !@contactUsers.empty? %>
     <% @contactUsers.each do |user| %>
-        <%= user["name"] %><br />
+        <%= link_to user["name"], "/contact?user_id=#{user["user_id"]}" %><br />
     <% end %>
 <% else %>
     コンタクトはありません。

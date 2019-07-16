@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   
   get 'contact_list' => 'contact_list#index'
 
+  get 'contact' => 'contact#index'
+  post 'contact/send_message' => 'contact#send_message'
+
   get 'logout' => 'logout#logout'
 
   get 'error' => 'error#index'

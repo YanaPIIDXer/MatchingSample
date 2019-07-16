@@ -15,12 +15,11 @@ class Contact < ActiveRecord::Base
 
     def self.findContactId(user_id1, user_id2)
         contactUser = ContactUser.where("user_id = ?",  user_id1)
-        return ContactUser.where("contact_id = ? and user_id = ?", contactUser.contact_id, user_id2).first
-    end
-    
-    def self.pairUser(user_id, contact_id)
-        contactUser = ContactUser.where("contact_id = ? and user_id <> >", contact_id, user_id).first
-        return User.find_by(user_id: contactUser.user_id)
+        contactUser.each do |user|
+            contactUser2 = ContactUser.where("contact_id = ? and user_id = ?", user.contact_id, user_id2).first
+            return contactUser2 if contactUser2
+        end
+        return nil
     end
 
 end
