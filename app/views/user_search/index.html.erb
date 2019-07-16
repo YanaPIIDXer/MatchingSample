@@ -8,6 +8,10 @@
     <%= label_tag "年齢" %><br />
     <%= number_field_tag :age_min, 0, :min => 0, :max => 100 %> ～ <%= number_field_tag :age_max, 100, :min => 0, :max => 100 %>
     <br />
+
+    <%= label_tag "紹介文" %><br />
+    <%= text_field_tag :detail %>
+    <br />
     
     <br />
     <%= submit_tag "検索" %><br />

@@ -14,6 +14,10 @@ class UserSearchController < ApplicationController
       @users = @users.where("name like ?", "%#{params[:name]}%")
     end
 
+    if params[:detail] != ""
+      @users = @users.where("detail like ?", "%#{params[:detail]}%")
+    end
+
     @users = @users.where("age >= ? and age <= ?", params[:age_min].to_i(), params[:age_max].to_i())
     
     @userCount = @users.length
