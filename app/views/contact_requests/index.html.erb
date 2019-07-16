@@ -2,7 +2,7 @@
 
 <% if !@requests.empty? %>
 <% @requests.each do |req| %>
-    <%= req.name %><br />
+    <%= link_to req.name, "/create_contact?user_id=#{req.user_id}" %><br />
 <% end %>
 <% else %>
 <h3>コンタクト要求はありません。</h3>
