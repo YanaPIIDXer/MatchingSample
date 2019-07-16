@@ -28,10 +28,20 @@ class ContactController < AuthPageController
         data = ContactHelper::MessageData.new(target.name, msg.message, false)
       end
       @messages.push(data)
+
+      if !msg.is_read
+        msg.is_read = true
+        msg.save()
+      end
     end
   end
 
   def send_message
+    if !params[:message] || params[:message] == ""
+      redirect_to "/contact?user_id=#{params[:user_id]}", :alert => "何も書かれていません。"
+      return
+    end
+
     message = ContactMessage.new(contact_id: params[:contact_id], user_id: session[:user_id], message: params[:message])
     if !message.save()
       redirect_to "/contact?user_id=#{params[:user_id]}", :alert => "発言に失敗しました。"
