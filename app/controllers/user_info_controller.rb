@@ -10,8 +10,6 @@ class UserInfoController < AuthPageController
       return
     end
 
-    @prevPageURL = request.referer
-
     @isSendContact = isSendContactRequest?(params[:user_id])
   end
 
