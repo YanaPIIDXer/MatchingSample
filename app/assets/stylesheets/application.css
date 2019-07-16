@@ -19,6 +19,21 @@ body
     background-color: #00FFFF;
 }
 
+a.link
+{
+    background-color: #FFFF00;
+    text-decoration: none;
+    border: solid;
+    border-color: #000000;
+
+    transition-duration: 1000ms;
+}
+
+a.link:hover
+{
+    background-color: #FF00FF
+}
+
 .PageTitle
 {
     font-size: 50px;
