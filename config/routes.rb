@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get 'contact_request' => 'user_info#contact_request'
   get 'cancel_contact_request' => 'user_info#cancel_contact_request'
 
+  get 'contact_requests' => 'contact_requests#index'
+
   get 'logout' => 'logout#logout'
 
   get 'error' => 'error#index'
