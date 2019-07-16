@@ -1,0 +1,13 @@
+<%= render partial: "application/pageheader", locals: {pageTitle: "ユーザ情報"} %>
+
+ユーザ名：<%= @user.name %><br />
+年齢：<%= @user.age %><br />
+<% if @user.detail != "" %>
+    紹介文：<br />
+    <%= @user.detail %><br />
+<% else %>
+    紹介文が設定されていません。<br />
+<% end %>
+
+<br />
+<%= link_to "戻る", @prevPageURL %><br />
