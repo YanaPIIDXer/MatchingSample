@@ -1,14 +1,5 @@
 class Contact < ActiveRecord::Base
 
-    def self.collectContacts(user_id)
-        contactUsers = ContactUser.where("user_id = ?", user_id)
-        contacts = []
-        contactUsers.each do |contactUser|
-            contacts.push(contactUser.contact_id)
-        end
-        return contacts
-    end
-    
     def self.collectUsers(user_id)
         contacts = ContactUser.where("user_id = ?", user_id)
         users = []
