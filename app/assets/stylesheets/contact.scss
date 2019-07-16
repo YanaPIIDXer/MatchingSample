@@ -1,3 +1,20 @@
 // Place all the styles related to the Contact controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.Message
+{
+    margin: 30px;
+    text-align: center;
+}
+
+.MyMessage
+{
+    background-color: #0000FF;
+    color: #FFFFFF;
+}
+
+.TargetMessage
+{
+    background-color: #FF0000;
+}

@@ -3,9 +3,9 @@
 <% if !@messages.empty? %>
     <% @messages.each do |message| %>
         <% if message.isMe %>
-            <div class="MyMessage">
+            <div class="Message MyMessage">
         <% else %>
-            <div class="TargetMessage">
+            <div class="Message TargetMessage">
         <% end %>
         <%= "#{message.name} : #{message.message}" %>
         </div>
