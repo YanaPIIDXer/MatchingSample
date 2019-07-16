@@ -17,6 +17,37 @@
 body
 {
     background-color: #00FFFF;
+    text-align: center;
+}
+
+a.link
+{
+    background-color: #FFFF00;
+    text-decoration: none;
+    border: solid;
+    border-color: #000000;
+
+    transition-duration: 1000ms;
+}
+
+a.link:hover
+{
+    background-color: #FF00FF
+}
+
+a.user
+{
+    background-color: #00FF00;
+    text-decoration: none;
+    border: solid;
+    border-color: #000000;
+
+    transition-duration: 1000ms;
+}
+
+a.user:hover
+{
+    background-color: #FF00FF;
 }
 
 .PageTitle
@@ -29,8 +60,13 @@ body
 {
     padding: 0px;
     opacity: 0;
+    width: 100%;
     height: 0px;
     text-align: center;
+    position: absolute;
+    display: inline-block;
+    top: 0%;
+    left: 0%;
 
     transition-duration: 500ms;
 }

@@ -17,8 +17,9 @@ ActiveRecord::Schema.define(version: 20190716065053) do
     t.integer  "contact_id", limit: 4
     t.string   "user_id",    limit: 255
     t.string   "message",    limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.boolean  "is_read",                default: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   create_table "contact_requests", force: :cascade do |t|

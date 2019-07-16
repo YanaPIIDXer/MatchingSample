@@ -1,12 +1,16 @@
 <%= render partial: "application/pageheader", locals: {pageTitle: "コンタクト一覧"} %>
 
-<% if !@contactUsers.empty? %>
-    <% @contactUsers.each do |user| %>
-        <%= link_to user["name"], "/contact?user_id=#{user["user_id"]}" %><br />
+<% if !@users.empty? %>
+    <% @users.each do |user| %>
+        <% if user.has_not_read %>
+            <div class="NotRead">!!</div>
+        <% end %>
+        <%= link_to user.name, "/contact?user_id=#{user.user_id}", :class => "user" %>
+        <br />
     <% end %>
 <% else %>
     コンタクトはありません。
 <% end %>
 
 <br />
-<a href = "/user_top">戻る</a><br />
+<a href = "/user_top" class="link">戻る</a><br />

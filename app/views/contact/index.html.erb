@@ -7,7 +7,8 @@
         <% else %>
             <div class="Message TargetMessage">
         <% end %>
-        <%= "#{message.name} : #{message.message}" %>
+        <%= "#{message.name}"%>
+        <pre> <%= message.message %> </pre>
         </div>
     <% end %>
 <% else %>
@@ -18,9 +19,10 @@
 <%= form_tag("/contact/send_message") do %>
     <%= hidden_field_tag :user_id, params[:user_id] %>
     <%= hidden_field_tag :contact_id, @contact_id %>
-    <%= text_field_tag :message %>
+    <%= text_area_tag :message, "", :size => "200x20" %>
+    <br />
     <%= submit_tag "発言" %>
 <% end %>
 
 <br />
-<a href="/contact_list">戻る</a><br />
+<a href="/contact_list" class="link">戻る</a><br />
