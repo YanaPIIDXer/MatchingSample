@@ -1,4 +1,4 @@
 <%= render partial: "application/pageheader", locals: {pageTitle: "マッチングサイト"} %>
 
-<a href="/login" class="link">ログイン</a><br />
-<a href="/join" class="link">ユーザ登録</a><br />
+<%= link_to "ログイン", login_path, :class => "link" %><br />
+<%= link_to "ユーザ登録", join_path, :class => "link" %><br />

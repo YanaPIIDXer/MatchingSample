@@ -2,11 +2,11 @@
 
 <% if !@requests.empty? %>
 <% @requests.each do |req| %>
-    <%= link_to req.name, "/create_contact?user_id=#{req.user_id}" %><br />
+    <%= link_to req.name, create_contact_path(:user_id => req.user_id), :class => "user" %><br />
 <% end %>
 <% else %>
 <h3>コンタクト要求はありません。</h3>
 <% end %>
 
 <br />
-<a href="/user_top">戻る</a><br />
+<%= link_to "戻る", user_top_path, :class => "link" %><br />

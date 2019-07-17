@@ -16,7 +16,7 @@
 <% end %>
 
 <hr />
-<%= form_tag("/contact/send_message") do %>
+<%= form_tag(contact_send_message_path) do %>
     <%= hidden_field_tag :user_id, params[:user_id] %>
     <%= hidden_field_tag :contact_id, @contact_id %>
     <%= text_area_tag :message, "", :size => "200x20" %>
@@ -25,4 +25,4 @@
 <% end %>
 
 <br />
-<a href="/contact_list" class="link">戻る</a><br />
+<%= link_to "戻る", contact_list_path, :class => "link" %><br />

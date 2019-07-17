@@ -20,7 +20,7 @@ class ContactRequestsController < AuthPageController
     end
 
     if !params[:user_id] || !User.find_by(user_id: params[:user_id])
-      redirect_to '/error', :alert => "不正なリクエストです。"
+      redirect_to error_path, :alert => "不正なリクエストです。"
       return
     end
 
@@ -40,6 +40,6 @@ class ContactRequestsController < AuthPageController
       end
     end
 
-    redirect_to '/contact_requests', :notice => "コンタクト要求を受諾しました。"
+    redirect_to contact_requests_path, :notice => "コンタクト要求を受諾しました。"
   end
 end
