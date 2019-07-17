@@ -2,11 +2,11 @@
 
 <h2>ようこそ、<%= @name %>さん</h2><br />
 
-<a href="/contact_list" class="link">コンタクト一覧</a><br />
-<a href="/contact_requests" class="link">コンタクト要求一覧</a><br />
+<%= link_to "コンタクト一覧", contact_list_path, :class => "link" %><br />
+<%= link_to "コンタクト要求一覧", contact_requests_path, :class => "link" %><br />
 <br />
 
-<a href="/user_search" class="link">ユーザ検索</a><br />
+<%= link_to "ユーザ検索", user_search_path, :class => "link" %><br />
 
 <br />
-<a href="/logout" class="link">ログアウト</a><br />
+<%= link_to "ログアウト", logout_path, :class => "link" %><br />

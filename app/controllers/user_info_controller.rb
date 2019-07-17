@@ -6,7 +6,7 @@ class UserInfoController < AuthPageController
 
     @user = User.find_by(user_id: params[:user_id])
     if !@user
-      redirect_to '/error', :alert => "無効なユーザＩＤです。"
+      redirect_to error_path, :alert => "無効なユーザＩＤです。"
       return
     end
 
@@ -20,27 +20,27 @@ class UserInfoController < AuthPageController
     end
 
     if !params[:user_id] || params[:user_id] == ""
-      redirect_to '/error', :alert => "不正なリクエストです。"
+      redirect_to error_path, :alert => "不正なリクエストです。"
       return
     end
 
     if isSendContactRequest?(params[:user_id])
-      redirect_to "/user_info?user_id=#{params[:user_id]}", :alert => "コンタクト要求送信済みです。"
+      redirect_to user_info_path(:user_id => params[:user_id]), :alert => "コンタクト要求送信済みです。"
       return
     end
 
     if isContactUser?(params[:user_id])
-      redirect_to "/user_info?user_id=#{params[:user_id]}", :alert => "コンタクト済みのユーザです。"
+      redirect_to user_info_path(:user_id => params[:user_id]), :alert => "コンタクト済みのユーザです。"
       return
     end
 
     req = ContactRequest.new(user_id: session[:user_id], target_user_id: params[:user_id])
     if !req.save()
-      redirect_to "/user_info?user_id=#{oarans[:user_id]}", :alert => "コンタクト要求の送信に失敗しました。"
+      redirect_to user_info_path(:user_id => params[:user_id]), :alert => "コンタクト要求の送信に失敗しました。"
       return
     end
 
-    redirect_to "/user_info?user_id=#{params[:user_id]}", :notice => "コンタクト要求を送信しました。"
+    redirect_to user_info_path(:user_id => params[:user_id]), :notice => "コンタクト要求を送信しました。"
   end
 
   def cancel_contact_request
@@ -49,23 +49,23 @@ class UserInfoController < AuthPageController
     end
 
     if !params[:user_id] || params[:user_id] == ""
-      redirect_to '/error', :alert => "不正なリクエストです。"
+      redirect_to error_path, :alert => "不正なリクエストです。"
       return
     end
 
     req = ContactRequest.find_by(user_id: session[:user_id], target_user_id: params[:user_id])
 
     if !req
-      redirect_to "/user_info?user_id=#{params[:user_id]}", :alert => "コンタクト要求をしていません。"
+      redirect_to user_info_path(:user_id => params[:user_id]), :alert => "コンタクト要求をしていません。"
       return
     end
 
     if !req.destroy()
-      redirect_to "/user_info?user_id=#{params[:user_id]}", :alert => "コンタクト要求の解除に失敗しました。"
+      redirect_to user_info_path(:user_id => params[:user_id]), :alert => "コンタクト要求の解除に失敗しました。"
       return
     end
 
-    redirect_to "/user_info?user_id=#{params[:user_id]}", :notice => "コンタクト要求を解除しました。"
+    redirect_to user_info_path(:user_id => params[:user_id]), :notice => "コンタクト要求を解除しました。"
   end
 
 private
@@ -79,7 +79,7 @@ private
     users.each do |user|
       return true if user.user_id == target_user_id
     end
-    return false    
+    return false
   end
 
 end

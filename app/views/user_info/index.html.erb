@@ -12,9 +12,9 @@
 
 <% if !@isContactUser %>
     <% if !@isSendContact %>
-        <%= link_to "コンタクト要求を送る", "/contact_request?user_id=#{@user.user_id}", :class => "link" %>
+        <%= link_to "コンタクト要求を送る", contact_request_path(:user_id => @user.user_id), :class => "link" %>
     <% else %>
-        <%= link_to "コンタクト要求を解除する", "/cancel_contact_request?user_id=#{@user.user_id}", :class => "link" %>
+        <%= link_to "コンタクト要求を解除する", cancel_contact_request_path(:user_id => @user.user_id), :class => "link" %>
     <% end %>
 <% else %>
     コンタクト済みのユーザです。
@@ -22,4 +22,4 @@
 <br />
 
 <br />
-<a href="/user_search" class="link">検索画面に戻る</a><br />
+<%= link_to "検索画面に戻る", user_search_path, :class => "link" %><br />

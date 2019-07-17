@@ -15,7 +15,7 @@ class UserSearchController < AuthPageController
     @ageMin = params[:age_min].to_i()
     @ageMax = params[:age_max].to_i()
     if @ageMin > @ageMax
-      redirect_to "/user_search", :alert => "年齢の最小値が年齢の最大値を超えています。"
+      redirect_to user_search_path, :alert => "年齢の最小値が年齢の最大値を超えています。"
       return
     end
     

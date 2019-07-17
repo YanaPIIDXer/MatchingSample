@@ -6,14 +6,14 @@ class ContactController < AuthPageController
 
     target = User.find_by(user_id: params[:user_id])
     if !target
-      redirect_to '/error', :alert => "不正なアクセスです。"
+      redirect_to error_path, :alert => "不正なアクセスです。"
       return
     end
 
     me = User.find_by(user_id: session[:user_id])
     contact = Contact.findContactId(me.user_id, target.user_id)
     if !contact
-      redirect_to '/error', :alert => "無効なコンタクトです。"
+      redirect_to error_path, :alert => "無効なコンタクトです。"
       return
     end
 
@@ -38,16 +38,16 @@ class ContactController < AuthPageController
 
   def send_message
     if !params[:message] || params[:message] == ""
-      redirect_to "/contact?user_id=#{params[:user_id]}", :alert => "何も書かれていません。"
+      redirect_to contact_path(:user_id => params[:user_id]), :alert => "何も書かれていません。"
       return
     end
 
     message = ContactMessage.new(contact_id: params[:contact_id], user_id: session[:user_id], message: params[:message])
     if !message.save()
-      redirect_to "/contact?user_id=#{params[:user_id]}", :alert => "発言に失敗しました。"
+      redirect_to contact_path(:user_id => params[:user_id]), :alert => "発言に失敗しました。"
       return
     end
     
-    redirect_to "/contact?user_id=#{params[:user_id]}"
+    redirect_to contact_path(:user_id => params[:user_id])
   end
 end
