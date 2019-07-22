@@ -19,8 +19,8 @@ class LoginController < ApplicationController
       return
     end
 
-    user = User.where("user_id = ? and password = ?", user_id, password)
-    if user.empty?
+    user = User.find_by(user_id: params[:session][:user_id])
+    if !user || !user.authenticate(params[:session][:password])
       redirect_to login_path, :alert => "ログインに失敗しました。"
       return
     end
